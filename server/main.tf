@@ -27,7 +27,7 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Created-by = "Terraform"
     Identity   = "${var.identity}"
   }
@@ -42,7 +42,7 @@ resource "aws_instance" "web" {
 
   key_name = "${aws_key_pair.default.id}"
 
-  tags {
+  tags = {
     Name       = "${var.identity} web ${count.index+1}/${var.num_webs}"
     Identity   = "${var.identity}"
     Created-by = "Terraform"
