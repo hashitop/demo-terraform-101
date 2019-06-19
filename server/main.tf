@@ -49,6 +49,7 @@ resource "aws_instance" "web" {
   }
 
   connection {
+    host        = "${self.public_dns}"
     user        = "ubuntu"
     private_key = "${var.private_key}"
   }
